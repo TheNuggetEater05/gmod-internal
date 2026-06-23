@@ -59,11 +59,13 @@
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Include;C:\Users\letou\Documents\Development\projects\gmod_internal\ext\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
+      <AdditionalDependencies>"C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Lib\x64\d3d9.lib";"C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Lib\x64\d3dx9.lib";"C:\Users\letou\Documents\Development\projects\gmod_internal\ext\lib\libMinHook.x64.lib";%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <Manifest>
       <EnableSegmentHeap>true</EnableSegmentHeap>
@@ -80,11 +82,13 @@
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Include;C:\Users\letou\Documents\Development\projects\gmod_internal\ext\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
+      <AdditionalDependencies>"C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Lib\x64\d3d9.lib";"C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Lib\x64\d3dx9.lib";"C:\Users\letou\Documents\Development\projects\gmod_internal\ext\lib\libMinHook.x64.lib";%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <Manifest>
       <EnableSegmentHeap>true</EnableSegmentHeap>
@@ -93,24 +97,33 @@
   <ItemGroup>
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="Global.cpp" />
+    <ClCompile Include="sdk\hooks\Hook.cpp" />
     <ClCompile Include="sdk\interfaces\InterfaceManager.cpp" />
     <ClCompile Include="sdk\netvars\NetvarManager.cpp" />
+    <ClCompile Include="sdk\rendering\Render.cpp" />
     <ClCompile Include="sdk\valve\IClientBaseDLL.cpp" />
     <ClCompile Include="sdk\valve\IClientEntityList.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ext\include\MinHook.h" />
     <ClInclude Include="Flow.h" />
     <ClInclude Include="Global.h" />
     <ClInclude Include="Includes.h" />
+    <ClInclude Include="sdk\hooks\Hook.h" />
     <ClInclude Include="sdk\interfaces\InterfaceManager.h" />
     <ClInclude Include="sdk\netvars\NetvarManager.h" />
+    <ClInclude Include="sdk\rendering\Render.h" />
     <ClInclude Include="sdk\SDK.h" />
     <ClInclude Include="sdk\types.h" />
+    <ClInclude Include="sdk\types\Vector3.h" />
     <ClInclude Include="sdk\valve\IClientBaseDLL.h" />
     <ClInclude Include="sdk\valve\IClientEntityList.h" />
     <ClInclude Include="utility\Logger.h" />
     <ClInclude Include="utility\Memory.h" />
     <ClInclude Include="utility\Singleton.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="ext\lib\libMinHook.x64.lib" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

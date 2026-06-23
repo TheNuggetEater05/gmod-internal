@@ -21,6 +21,7 @@ namespace G
 
 	HMODULE hMod = nullptr;
 	Logger* pOutput = nullptr;
+	Render* pRender = nullptr;
 
 	// Global function definitions
 	inline const bool InitializeModule(HMODULE hModule)
@@ -29,13 +30,18 @@ namespace G
 		hMod = hModule;
 
 		pOutput = &Logger::Get();
+		pRender = &Render::Get();
 
 		// Initialize systems
 		pOutput->Init();
 		pOutput->SetPrefix(logPrefix);
 
+		pRender->Init();
+
 		IManagers::Init();
 		I::Init();
+
+		HK::Init();
 
 		return true;
 	}
@@ -47,8 +53,14 @@ namespace G
 		// Any clean ups here
 		IManagers::Cleanup();
 
+		pOutput->Log("Destroying hooks");
+		HK::Destroy();
+		pOutput->Log(LOG_SUCCESS, "Destroyed hooks");
+
 		pOutput->Log(LOG_SUCCESS, "Finished cleaning up");
 		pOutput->Log("You can now close this window");
+
+		pRender->Destroy();
 
 		pOutput->Destroy();
 		FreeLibraryAndExitThread(hMod, 0);

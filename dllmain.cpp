@@ -42,18 +42,15 @@ void Main(HMODULE hModule)
             if (!health)
                 continue;
 
-            auto velocityX = *reinterpret_cast<float*>(entity + 0x150);
-            auto velocityY = *reinterpret_cast<float*>(entity + 0x154);
-            auto velocityZ = *reinterpret_cast<float*>(entity + 0x158);
+            auto velocity = *reinterpret_cast<Vector*>(entity + 0x150);
 
             auto jumpPower = *reinterpret_cast<const char**>(entity + 0x38AC);
 
             G::pOutput->Log("%i @ %p:", i, entity);
             G::pOutput->Log("Health %i", health);
-            G::pOutput->Log("Velocity X %f", velocityX);
-            G::pOutput->Log("Velocity Y %f", velocityY);
-            G::pOutput->Log("Velocity Z %f", velocityZ);
-            G::pOutput->Log("JumpPower %f", jumpPower);
+            G::pOutput->Log("Velocity X %f", velocity.x);
+            G::pOutput->Log("Velocity Y %f", velocity.y);
+            G::pOutput->Log("Velocity Z %f", velocity.z);
 
         }
         Sleep(10);

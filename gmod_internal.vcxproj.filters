@@ -33,6 +33,12 @@
     <ClCompile Include="sdk\valve\IClientEntityList.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="sdk\rendering\Render.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="sdk\hooks\Hook.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Flow.h">
@@ -71,5 +77,20 @@
     <ClInclude Include="sdk\valve\IClientEntityList.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="sdk\types\Vector3.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ext\include\MinHook.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="sdk\rendering\Render.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="sdk\hooks\Hook.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="ext\lib\libMinHook.x64.lib" />
   </ItemGroup>
 </Project>
