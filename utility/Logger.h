@@ -11,7 +11,7 @@
 
 #include "Singleton.h"
 
-enum
+enum LOG_LEVELS
 {
 	LOG_INFO = 0,
 	LOG_SUCCESS,
@@ -31,7 +31,23 @@ public:
 
 		makeAnsiSupportedConsole();
 
+		disableClose();
+
 		m_Initialized = true;
+	}
+
+	inline void Destroy()
+	{
+		enableClose();
+		FreeConsole();
+	}
+
+	/*
+	* UNIMPLEMENTED
+	* Adds feature to context menu
+	*/
+	void AddFeature(const std::string& name, void* feature)
+	{
 	}
 
 	/*
@@ -93,6 +109,8 @@ public:
 private:
 	bool m_Initialized = false;
 	std::string m_Prefix;
+	HMENU hMenu = nullptr;
+	HWND hWnd;
 
 private:
 
@@ -114,6 +132,23 @@ private:
 		GetConsoleMode(hOut, &mode);
 		mode |= ENABLE_VIRTUAL_TERMINAL_PROCESSING;
 		SetConsoleMode(hOut, mode);
+
+		hWnd = GetConsoleWindow();
+		hMenu = GetSystemMenu(hWnd, FALSE);
+	}
+
+	void disableClose()
+	{
+		EnableMenuItem(hMenu, SC_CLOSE, MF_BYCOMMAND | MF_GRAYED);
+
+		DrawMenuBar(hWnd);
+	}
+
+	void enableClose()
+	{
+		EnableMenuItem(hMenu, SC_CLOSE, MF_BYCOMMAND | MF_ENABLED);
+
+		DrawMenuBar(hWnd);
 	}
 
 	// Putting these down here so they dont hide everything else

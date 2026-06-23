@@ -1,54 +1,71 @@
 #include "Global.h"
 
-namespace glb
+#include "sdk/interfaces/InterfaceManager.h"
+
+namespace I
 {
-	HMODULE hMod = nullptr;
-	Logger* Output = nullptr;
-
-	namespace iface
-	{
-		std::unique_ptr<ifacemanager::IFaceManager> pClient;
-		std::unique_ptr<ifacemanager::IFaceManager> pEngine;
-
-		IBaseClient* pBaseClientDll;
-		IClientEntityList* pClientEntityList;
-	}
+	void* EntityList = nullptr;
+	void* Client = nullptr;
 
 	void Init()
 	{
-		Output = &Logger::Get();
-		Output->Init();
-		Output->SetPrefix("gmod-internal");
-		Output->Log("Initializing globals");
+		EntityList = IManagers::Client->Get<void*>("VClientEntityList0");
+		Client = IManagers::Client->Get<void*>("VClient0");
+	}
+}
 
-		iface::pClient = std::make_unique<ifacemanager::IFaceManager>("client.dll");
-		iface::pEngine = std::make_unique<ifacemanager::IFaceManager>("engine.dll");
+namespace G
+{
+	// Global variable & references declarations
+	inline const std::string logPrefix = "GMOD-INTERNAL";
 
-		iface::pBaseClientDll = iface::pClient->Get<IBaseClient>("VClient0");
-		iface::pClientEntityList = iface::pClient->Get<IClientEntityList>("VClientEntityList0");
+	HMODULE hMod = nullptr;
+	Logger* pOutput = nullptr;
 
-		Output->Log(LOG_SUCCESS, "Initialized globals");
+	// Global function definitions
+	inline const bool InitializeModule(HMODULE hModule)
+	{
+		// Fill our variables and references
+		hMod = hModule;
+
+		pOutput = &Logger::Get();
+
+		// Initialize systems
+		pOutput->Init();
+		pOutput->SetPrefix(logPrefix);
+
+		IManagers::Init();
+		I::Init();
+
+		return true;
 	}
 
-	void Exit()
+	inline const void ExitModule()
 	{
-		Output->Log("Unloading gmod-internal");
+		pOutput->Log("Cleaning up and unloading...");
 
-		Output->Log(LOG_SUCCESS, "You can now close this window");
+		// Any clean ups here
+		IManagers::Cleanup();
 
-		FreeConsole();
+		pOutput->Log(LOG_SUCCESS, "Finished cleaning up");
+		pOutput->Log("You can now close this window");
+
+		pOutput->Destroy();
 		FreeLibraryAndExitThread(hMod, 0);
 	}
+	const void ExitModule(const char* fmt, va_list args)
+	{
+		pOutput->Log(LOG_ERROR, fmt, args);
 
-	void Exit(const char* fmt, ...)
+		ExitModule();
+	}
+	const void ExitModule(const char* fmt, ...)
 	{
 		va_list args;
 		va_start(args, fmt);
 
-		Output->Log(LOG_ERROR, fmt, args);
+		ExitModule(fmt, args);
 
 		va_end(args);
-
-		Exit();
 	}
 }

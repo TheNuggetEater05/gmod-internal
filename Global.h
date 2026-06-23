@@ -4,38 +4,34 @@
 #define GLOBAL_H
 
 #define WIN32_LEAN_AND_MEAN
-#include <Windows.h>
-#include <iostream>
-#include <cstdint>
 
-#include "util/Logger.h"
-#include "util/Memory.h"
+// Commonly used includes
+#include "Includes.h"
 
-#include "iface/Manager.h"
-#include "iface/valve/IBaseClient.h"
-#include "iface/valve/IClientEntityList.h"
+#include "utility/Logger.h"
+#include "utility/Memory.h"
 
-namespace glb
+#include "sdk/SDK.h"
+
+namespace G
 {
+	// Global function declarations
+	extern inline const bool InitializeModule(HMODULE hModule);
+	extern inline const void ExitModule();
+	extern const void ExitModule(const char* fmt, ...);
+	extern const void ExitModule(const char* fmt, va_list args);
+
+	// Global variables & references
+	extern inline const std::string logPrefix;
+
 	extern HMODULE hMod;
-	extern Logger* Output;
+	extern Logger* pOutput;
+}
 
-	// Interface managers
-
-	namespace iface
-	{
-		extern std::unique_ptr<ifacemanager::IFaceManager> pClient;
-		extern std::unique_ptr<ifacemanager::IFaceManager> pEngine;
-
-		// Interfaces
-		extern IBaseClient* pBaseClientDll;
-		extern IClientEntityList* pClientEntityList;
-	}
-
-	void Init();
-
-	void Exit();
-	void Exit(const char* fmt, ...);
+namespace I
+{
+	extern void* EntityList;
+	extern void* Client;
 }
 
 #endif

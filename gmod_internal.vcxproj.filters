@@ -21,45 +21,36 @@
     <ClCompile Include="Global.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="iface\Manager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="mathlib\vector.cpp">
+    <ClCompile Include="sdk\interfaces\InterfaceManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Flow.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="utility\Logger.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="utility\Singleton.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="sdk\SDK.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="Global.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="util\Singleton.h">
+    <ClInclude Include="utility\Memory.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="util\Logger.h">
+    <ClInclude Include="sdk\interfaces\InterfaceManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="iface\Manager.h">
+    <ClInclude Include="Includes.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="mathlib\vector.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="mathlib\vector2d.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="util\common.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="util\Memory.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="iface\valve\IBaseClient.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="util\fnv.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="iface\valve\IClientEntityList.h">
+    <ClInclude Include="sdk\netvars\NetvarManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

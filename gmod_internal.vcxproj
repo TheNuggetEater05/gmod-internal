@@ -93,21 +93,18 @@
   <ItemGroup>
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="Global.cpp" />
-    <ClCompile Include="iface\Manager.cpp" />
-    <ClCompile Include="mathlib\vector.cpp" />
+    <ClCompile Include="sdk\interfaces\InterfaceManager.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Flow.h" />
     <ClInclude Include="Global.h" />
-    <ClInclude Include="iface\Manager.h" />
-    <ClInclude Include="iface\valve\IBaseClient.h" />
-    <ClInclude Include="iface\valve\IClientEntityList.h" />
-    <ClInclude Include="mathlib\vector.h" />
-    <ClInclude Include="mathlib\vector2d.h" />
-    <ClInclude Include="util\common.h" />
-    <ClInclude Include="util\fnv.h" />
-    <ClInclude Include="util\Logger.h" />
-    <ClInclude Include="util\Memory.h" />
-    <ClInclude Include="util\Singleton.h" />
+    <ClInclude Include="Includes.h" />
+    <ClInclude Include="sdk\interfaces\InterfaceManager.h" />
+    <ClInclude Include="sdk\netvars\NetvarManager.h" />
+    <ClInclude Include="sdk\SDK.h" />
+    <ClInclude Include="utility\Logger.h" />
+    <ClInclude Include="utility\Memory.h" />
+    <ClInclude Include="utility\Singleton.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

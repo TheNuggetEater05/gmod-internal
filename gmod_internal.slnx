@@ -2,5 +2,5 @@
   <Configurations>
     <Platform Name="x64" />
   </Configurations>
-  <Project Path="gmod_internal.vcxproj" />
+  <Project Path="gmod_internal.vcxproj" Id="c9fa601c-ce2c-4a91-8352-babf509e1a9d" />
 </Solution>
