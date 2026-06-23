@@ -4,13 +4,13 @@
 
 namespace I
 {
-	void* EntityList = nullptr;
-	void* Client = nullptr;
+	IClientEntityList* EntityList = nullptr;
+	IClientBaseDLL* Client = nullptr;
 
 	void Init()
 	{
-		EntityList = IManagers::Client->Get<void*>("VClientEntityList0");
-		Client = IManagers::Client->Get<void*>("VClient0");
+		EntityList = IManagers::Client->Get<IClientEntityList>("VClientEntityList0");
+		Client = IManagers::Client->Get<IClientBaseDLL>("VClient0");
 	}
 }
 

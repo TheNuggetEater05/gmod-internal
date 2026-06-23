@@ -11,6 +11,8 @@
 #include "utility/Logger.h"
 #include "utility/Memory.h"
 
+#include "sdk/netvars/NetvarManager.h"
+
 #include "sdk/SDK.h"
 
 namespace G
@@ -30,8 +32,8 @@ namespace G
 
 namespace I
 {
-	extern void* EntityList;
-	extern void* Client;
+	extern IClientEntityList* EntityList;
+	extern IClientBaseDLL* Client;
 }
 
 #endif

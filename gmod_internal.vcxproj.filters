@@ -24,6 +24,15 @@
     <ClCompile Include="sdk\interfaces\InterfaceManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="sdk\valve\IClientBaseDLL.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="sdk\netvars\NetvarManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="sdk\valve\IClientEntityList.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Flow.h">
@@ -51,6 +60,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="sdk\netvars\NetvarManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="sdk\types.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="sdk\valve\IClientBaseDLL.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="sdk\valve\IClientEntityList.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
