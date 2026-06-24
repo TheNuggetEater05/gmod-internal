@@ -103,16 +103,10 @@
     <ClCompile Include="ext\include\imgui_impl_win32.cpp" />
     <ClCompile Include="ext\include\imgui_tables.cpp" />
     <ClCompile Include="ext\include\imgui_widgets.cpp" />
-    <ClCompile Include="Global.cpp" />
-    <ClCompile Include="sdk\hooks.cpp" />
-    <ClCompile Include="sdk\hooks\D3D.cpp" />
-    <ClCompile Include="sdk\interfaces\InterfaceManager.cpp" />
-    <ClCompile Include="sdk\netvars\NetvarManager.cpp" />
-    <ClCompile Include="sdk\rendering\Render.cpp" />
-    <ClCompile Include="sdk\valve\IClientBaseDLL.cpp" />
-    <ClCompile Include="sdk\valve\IClientEntityList.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="common\Common.h" />
+    <ClInclude Include="common\Includes.h" />
     <ClInclude Include="ext\include\imconfig.h" />
     <ClInclude Include="ext\include\imgui.h" />
     <ClInclude Include="ext\include\imgui_impl_dx9.h" />
@@ -122,19 +116,6 @@
     <ClInclude Include="ext\include\imstb_textedit.h" />
     <ClInclude Include="ext\include\imstb_truetype.h" />
     <ClInclude Include="ext\include\MinHook.h" />
-    <ClInclude Include="Flow.h" />
-    <ClInclude Include="Global.h" />
-    <ClInclude Include="Includes.h" />
-    <ClInclude Include="sdk\hooks.h" />
-    <ClInclude Include="sdk\hooks\D3D.h" />
-    <ClInclude Include="sdk\interfaces\InterfaceManager.h" />
-    <ClInclude Include="sdk\netvars\NetvarManager.h" />
-    <ClInclude Include="sdk\rendering\Render.h" />
-    <ClInclude Include="sdk\SDK.h" />
-    <ClInclude Include="common.h" />
-    <ClInclude Include="sdk\types\Vector3.h" />
-    <ClInclude Include="sdk\valve\IClientBaseDLL.h" />
-    <ClInclude Include="sdk\valve\IClientEntityList.h" />
     <ClInclude Include="utility\Logger.h" />
     <ClInclude Include="utility\Memory.h" />
     <ClInclude Include="utility\Singleton.h" />

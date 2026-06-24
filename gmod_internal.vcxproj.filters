@@ -18,27 +18,6 @@
     <ClCompile Include="dllmain.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Global.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="sdk\interfaces\InterfaceManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="sdk\valve\IClientBaseDLL.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="sdk\netvars\NetvarManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="sdk\valve\IClientEntityList.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="sdk\rendering\Render.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="sdk\hooks\D3D.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="ext\include\imgui.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -60,57 +39,18 @@
     <ClCompile Include="ext\include\imgui_widgets.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="sdk\hooks.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Flow.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="utility\Logger.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="utility\Singleton.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="sdk\SDK.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Global.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="utility\Memory.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="sdk\interfaces\InterfaceManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Includes.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="sdk\netvars\NetvarManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="common.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="sdk\valve\IClientBaseDLL.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="sdk\valve\IClientEntityList.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="sdk\types\Vector3.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="ext\include\MinHook.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="sdk\rendering\Render.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="sdk\hooks\D3D.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ext\include\imconfig.h">
@@ -137,7 +77,10 @@
     <ClInclude Include="ext\include\imstb_truetype.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="sdk\hooks.h">
+    <ClInclude Include="common\Common.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="common\Includes.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
