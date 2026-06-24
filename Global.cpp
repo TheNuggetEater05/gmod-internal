@@ -36,12 +36,10 @@ namespace G
 		pOutput->Init();
 		pOutput->SetPrefix(logPrefix);
 
-		pRender->Init();
-
 		IManagers::Init();
 		I::Init();
 
-		HK::Init();
+		HK::Init(); // Also initializes pRender;
 
 		return true;
 	}
@@ -51,16 +49,12 @@ namespace G
 		pOutput->Log("Cleaning up and unloading...");
 
 		// Any clean ups here
-		IManagers::Cleanup();
-
-		pOutput->Log("Destroying hooks");
+		pRender->Destroy();
 		HK::Destroy();
-		pOutput->Log(LOG_SUCCESS, "Destroyed hooks");
+		IManagers::Cleanup();
 
 		pOutput->Log(LOG_SUCCESS, "Finished cleaning up");
 		pOutput->Log("You can now close this window");
-
-		pRender->Destroy();
 
 		pOutput->Destroy();
 		FreeLibraryAndExitThread(hMod, 0);

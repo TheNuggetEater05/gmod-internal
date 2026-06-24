@@ -5,17 +5,18 @@
 
 #define WIN32_LEAN_AND_MEAN
 
+#pragma comment(lib, "d3d9.lib")
+#pragma comment(lib, "d3dx9.lib")
+
 // Commonly used includes
 #include "Includes.h"
 
 #include "utility/Logger.h"
 #include "utility/Memory.h"
 
-#include "sdk/types.h"
-
 #include "sdk/netvars/NetvarManager.h"
 #include "sdk/rendering/Render.h"
-#include "sdk/hooks/Hook.h"
+#include "sdk/hooks.h"
 
 #include "sdk/SDK.h"
 

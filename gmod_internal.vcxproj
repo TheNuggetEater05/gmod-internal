@@ -20,13 +20,13 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
-    <PlatformToolset>v145</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
     <UseDebugLibraries>true</UseDebugLibraries>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
-    <PlatformToolset>v145</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
@@ -96,8 +96,16 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="ext\include\imgui.cpp" />
+    <ClCompile Include="ext\include\imgui_demo.cpp" />
+    <ClCompile Include="ext\include\imgui_draw.cpp" />
+    <ClCompile Include="ext\include\imgui_impl_dx9.cpp" />
+    <ClCompile Include="ext\include\imgui_impl_win32.cpp" />
+    <ClCompile Include="ext\include\imgui_tables.cpp" />
+    <ClCompile Include="ext\include\imgui_widgets.cpp" />
     <ClCompile Include="Global.cpp" />
-    <ClCompile Include="sdk\hooks\Hook.cpp" />
+    <ClCompile Include="sdk\hooks.cpp" />
+    <ClCompile Include="sdk\hooks\D3D.cpp" />
     <ClCompile Include="sdk\interfaces\InterfaceManager.cpp" />
     <ClCompile Include="sdk\netvars\NetvarManager.cpp" />
     <ClCompile Include="sdk\rendering\Render.cpp" />
@@ -105,16 +113,25 @@
     <ClCompile Include="sdk\valve\IClientEntityList.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ext\include\imconfig.h" />
+    <ClInclude Include="ext\include\imgui.h" />
+    <ClInclude Include="ext\include\imgui_impl_dx9.h" />
+    <ClInclude Include="ext\include\imgui_impl_win32.h" />
+    <ClInclude Include="ext\include\imgui_internal.h" />
+    <ClInclude Include="ext\include\imstb_rectpack.h" />
+    <ClInclude Include="ext\include\imstb_textedit.h" />
+    <ClInclude Include="ext\include\imstb_truetype.h" />
     <ClInclude Include="ext\include\MinHook.h" />
     <ClInclude Include="Flow.h" />
     <ClInclude Include="Global.h" />
     <ClInclude Include="Includes.h" />
-    <ClInclude Include="sdk\hooks\Hook.h" />
+    <ClInclude Include="sdk\hooks.h" />
+    <ClInclude Include="sdk\hooks\D3D.h" />
     <ClInclude Include="sdk\interfaces\InterfaceManager.h" />
     <ClInclude Include="sdk\netvars\NetvarManager.h" />
     <ClInclude Include="sdk\rendering\Render.h" />
     <ClInclude Include="sdk\SDK.h" />
-    <ClInclude Include="sdk\types.h" />
+    <ClInclude Include="common.h" />
     <ClInclude Include="sdk\types\Vector3.h" />
     <ClInclude Include="sdk\valve\IClientBaseDLL.h" />
     <ClInclude Include="sdk\valve\IClientEntityList.h" />
