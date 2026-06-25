@@ -1,8 +1,14 @@
 #include "Module.h"
 
 #include "logger/Logger.h"
+#include "interfacemanager/InterfaceManager.h"
 #include "hookmanager/HookManager.h"
 #include "renderer/Renderer.h"
+
+#include "sdk/IBaseClientDLL.h"
+#include "sdk/IVEngineClient.h"
+
+#include "types/Vector.h"
 
 #include <imgui/imgui.h>
 
@@ -17,6 +23,14 @@ void Module::Start(HMODULE hModule)
 
 	if (!Init())
 		Kill("Failed to initialize module");
+
+	IBaseClientDLL* vclient = pInterfaceManager->GetI<IBaseClientDLL>("client.dll", "VClient0");
+	IVEngineClient* vengineclient = pInterfaceManager->GetI<IVEngineClient>("engine.dll", "VEngineClient");
+
+	int width, height = 0;
+	vengineclient->GetScreenSize(width, height);
+
+	pLogger->Log("Width: %i, Height: %i", width, height);
 }
 
 void Module::Update()
@@ -38,6 +52,10 @@ bool Module::Init()
 	// Initialize hooks
 	pHookManager = &HookManager::Get();
 	pHookManager->Init();
+
+	pInterfaceManager = &InterfaceManager::Get();
+	pInterfaceManager->Init();
+	
 
 	// Renderer is now initialized in D3D.cpp EndScene hook
 	pRenderer = &Renderer::Get();
@@ -61,6 +79,7 @@ void Module::Kill(const char* format, ...)
 
 	pHookManager->Shutdown();
 	pRenderer->Shutdown();
+	pInterfaceManager->Shutdown();
 
 	pLogger->Log(LOG_SUCCESS, "Module unloaded");
 

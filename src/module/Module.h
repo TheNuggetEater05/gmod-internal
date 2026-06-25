@@ -7,6 +7,7 @@
 
 class Logger;
 class HookManager;
+class InterfaceManager;
 class Renderer;
 
 class Module : public Singleton<Module>
@@ -21,13 +22,13 @@ public:
 
 public:
 	Logger* pLogger;
+	InterfaceManager* pInterfaceManager;
 	HookManager* pHookManager;
 	Renderer* pRenderer;
 
 private:
 	bool m_Initialized = false;
 	HMODULE m_hModule = nullptr;
-
 
 private:
 	bool Init();

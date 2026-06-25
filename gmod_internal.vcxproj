@@ -107,8 +107,11 @@
     <ClCompile Include="src\module\features\visuals\Watermark\Watermark.cpp" />
     <ClCompile Include="src\module\hookmanager\HookManager.cpp" />
     <ClCompile Include="src\module\hookmanager\hooks\D3D\D3D.cpp" />
+    <ClCompile Include="src\module\interfacemanager\InterfaceManager.cpp" />
     <ClCompile Include="src\module\Module.cpp" />
     <ClCompile Include="src\module\renderer\Renderer.cpp" />
+    <ClCompile Include="src\module\sdk\IBaseClientDLL.cpp" />
+    <ClCompile Include="src\module\sdk\IVEngineClient.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ext\include\imgui\imconfig.h" />
@@ -127,9 +130,12 @@
     <ClInclude Include="src\module\features\visuals\Watermark\Watermark.h" />
     <ClInclude Include="src\module\hookmanager\HookManager.h" />
     <ClInclude Include="src\module\hookmanager\hooks\D3D\D3D.h" />
+    <ClInclude Include="src\module\interfacemanager\InterfaceManager.h" />
     <ClInclude Include="src\module\logger\Logger.h" />
     <ClInclude Include="src\module\Module.h" />
     <ClInclude Include="src\module\renderer\Renderer.h" />
+    <ClInclude Include="src\module\sdk\IBaseClientDLL.h" />
+    <ClInclude Include="src\module\sdk\IVEngineClient.h" />
     <ClInclude Include="src\module\Settings.h" />
     <ClInclude Include="src\module\types\Color.h" />
     <ClInclude Include="src\module\types\Vector.h" />
