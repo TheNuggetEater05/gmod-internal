@@ -33,4 +33,4 @@ namespace Memory
 	}
 }
 
-#endif
+#endif // !MEMORY_H

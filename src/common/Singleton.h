@@ -1,7 +1,7 @@
 #pragma once
 
 #ifndef SINGLETON_H
-#define SINGLETON_H
+#define SINGELTON_H
 
 template<typename T>
 class Singleton
@@ -18,4 +18,4 @@ protected:
 	Singleton& operator=(const Singleton&) = delete;
 };
 
-#endif
+#endif // !SINGLETON_H

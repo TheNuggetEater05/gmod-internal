@@ -9,7 +9,7 @@
 #include <string>
 #include <iostream>
 
-#include "Singleton.h"
+#include "../../common/Singleton.h"
 
 enum LOG_LEVELS
 {
@@ -78,7 +78,6 @@ public:
 		case LOG_ERROR:
 			logPrefix += BRIGHT_RED + BOLD + "[!]" + RESET;
 		}
-
 		printf("%s ~ ", logPrefix.c_str());
 		vprintf(fmt, args);
 		std::printf("\n");
@@ -199,4 +198,4 @@ private:
 	const std::string BG_BRIGHT_WHITE = "\033[107m";
 };
 
-#endif
+#endif // !LOGGER_H

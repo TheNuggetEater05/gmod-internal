@@ -59,7 +59,7 @@
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Include;C:\Users\letou\Documents\Development\projects\gmod_internal\ext\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\letou\Documents\Development\projects\gmod_internal\src\common;C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Include;C:\Users\letou\Documents\Development\projects\gmod_internal\ext\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -82,7 +82,7 @@
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Include;C:\Users\letou\Documents\Development\projects\gmod_internal\ext\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\letou\Documents\Development\projects\gmod_internal\src\common;C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Include;C:\Users\letou\Documents\Development\projects\gmod_internal\ext\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -95,33 +95,50 @@
     </Manifest>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="dllmain.cpp" />
-    <ClCompile Include="ext\include\imgui.cpp" />
-    <ClCompile Include="ext\include\imgui_demo.cpp" />
-    <ClCompile Include="ext\include\imgui_draw.cpp" />
-    <ClCompile Include="ext\include\imgui_impl_dx9.cpp" />
-    <ClCompile Include="ext\include\imgui_impl_win32.cpp" />
-    <ClCompile Include="ext\include\imgui_tables.cpp" />
-    <ClCompile Include="ext\include\imgui_widgets.cpp" />
+    <ClCompile Include="src\dllmain.cpp" />
+    <ClCompile Include="ext\include\imgui\imgui.cpp" />
+    <ClCompile Include="ext\include\imgui\imgui_demo.cpp" />
+    <ClCompile Include="ext\include\imgui\imgui_draw.cpp" />
+    <ClCompile Include="ext\include\imgui\imgui_impl_dx9.cpp" />
+    <ClCompile Include="ext\include\imgui\imgui_impl_win32.cpp" />
+    <ClCompile Include="ext\include\imgui\imgui_tables.cpp" />
+    <ClCompile Include="ext\include\imgui\imgui_widgets.cpp" />
+    <ClCompile Include="src\module\features\visuals\Visuals.cpp" />
+    <ClCompile Include="src\module\features\visuals\Watermark\Watermark.cpp" />
+    <ClCompile Include="src\module\hookmanager\HookManager.cpp" />
+    <ClCompile Include="src\module\hookmanager\hooks\D3D\D3D.cpp" />
+    <ClCompile Include="src\module\Module.cpp" />
+    <ClCompile Include="src\module\renderer\Renderer.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="common\Common.h" />
-    <ClInclude Include="common\Includes.h" />
-    <ClInclude Include="ext\include\imconfig.h" />
-    <ClInclude Include="ext\include\imgui.h" />
-    <ClInclude Include="ext\include\imgui_impl_dx9.h" />
-    <ClInclude Include="ext\include\imgui_impl_win32.h" />
-    <ClInclude Include="ext\include\imgui_internal.h" />
-    <ClInclude Include="ext\include\imstb_rectpack.h" />
-    <ClInclude Include="ext\include\imstb_textedit.h" />
-    <ClInclude Include="ext\include\imstb_truetype.h" />
-    <ClInclude Include="ext\include\MinHook.h" />
-    <ClInclude Include="utility\Logger.h" />
-    <ClInclude Include="utility\Memory.h" />
-    <ClInclude Include="utility\Singleton.h" />
+    <ClInclude Include="ext\include\imgui\imconfig.h" />
+    <ClInclude Include="ext\include\imgui\imgui.h" />
+    <ClInclude Include="ext\include\imgui\imgui_impl_dx9.h" />
+    <ClInclude Include="ext\include\imgui\imgui_impl_win32.h" />
+    <ClInclude Include="ext\include\imgui\imgui_internal.h" />
+    <ClInclude Include="ext\include\imgui\imstb_rectpack.h" />
+    <ClInclude Include="ext\include\imgui\imstb_textedit.h" />
+    <ClInclude Include="ext\include\imgui\imstb_truetype.h" />
+    <ClInclude Include="ext\include\minhook\MinHook.h" />
+    <ClInclude Include="src\common\Includes.h" />
+    <ClInclude Include="src\common\Memory.h" />
+    <ClInclude Include="src\common\Singleton.h" />
+    <ClInclude Include="src\module\features\visuals\Visuals.h" />
+    <ClInclude Include="src\module\features\visuals\Watermark\Watermark.h" />
+    <ClInclude Include="src\module\hookmanager\HookManager.h" />
+    <ClInclude Include="src\module\hookmanager\hooks\D3D\D3D.h" />
+    <ClInclude Include="src\module\logger\Logger.h" />
+    <ClInclude Include="src\module\Module.h" />
+    <ClInclude Include="src\module\renderer\Renderer.h" />
+    <ClInclude Include="src\module\Settings.h" />
+    <ClInclude Include="src\module\types\Color.h" />
+    <ClInclude Include="src\module\types\Vector.h" />
   </ItemGroup>
   <ItemGroup>
     <Library Include="ext\lib\libMinHook.x64.lib" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="gmod_internal.slnx" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

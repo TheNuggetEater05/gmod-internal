@@ -1,4 +1,5 @@
-#include "Global.h"
+#include <Includes.h>
+#include "module/Module.h"
 
 #define QUIT_KEY VK_END
 
@@ -10,7 +11,11 @@ BOOL APIENTRY DllMain(HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReser
     {
     case DLL_PROCESS_ATTACH:
         DisableThreadLibraryCalls(hModule);
-        CloseHandle(CreateThread(0, 0, reinterpret_cast<LPTHREAD_START_ROUTINE>(Main), hModule, 0, 0));
+        auto thread = CreateThread(0, 0, reinterpret_cast<LPTHREAD_START_ROUTINE>(Main), hModule, 0, 0);
+
+        if (thread)
+            CloseHandle(thread);
+
         break;
     }
     return TRUE;
@@ -18,12 +23,12 @@ BOOL APIENTRY DllMain(HMODULE hModule, DWORD  ul_reason_for_call, LPVOID lpReser
 
 void Main(HMODULE hModule)
 {
-    G::InitializeModule(hModule);
+    Module* pModule = &Module::Get();
+
+    pModule->Start(hModule);
 
     while (!GetAsyncKeyState(QUIT_KEY))
-    {
         Sleep(10);
-    }
 
-    G::ExitModule();
+    pModule->Kill();
 }
