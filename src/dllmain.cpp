@@ -28,7 +28,9 @@ void Main(HMODULE hModule)
     pModule->Start(hModule);
 
     while (!GetAsyncKeyState(QUIT_KEY))
-        Sleep(10);
+    {
+        pModule->Update();
+    }
 
     pModule->Kill();
 }

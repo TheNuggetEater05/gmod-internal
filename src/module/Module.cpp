@@ -4,6 +4,10 @@
 #include "hookmanager/HookManager.h"
 #include "renderer/Renderer.h"
 
+#include <imgui/imgui.h>
+
+#include "Settings.h"
+
 void Module::Start(HMODULE hModule)
 {
 	if (m_Initialized)
@@ -17,7 +21,10 @@ void Module::Start(HMODULE hModule)
 
 void Module::Update()
 {
+	if (!ImGui::GetCurrentContext())
+		return;
 
+	g_GameInfo.FPS = ImGui::GetIO().Framerate;
 }
 
 // Private

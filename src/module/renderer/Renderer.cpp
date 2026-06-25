@@ -131,6 +131,28 @@ void Renderer::DrawText(const std::string& text, const Vec2& position, const Col
 }
 
 
+void Renderer::DrawRect(const Vec2& topLeft, const Vec2& bottomRight, const Color& color, float thickness, bool outlined, bool filled, float rounding)
+{
+	if (outlined)
+		ImGui::GetBackgroundDrawList()->AddRect(ImVec2(topLeft.x, topLeft.y), ImVec2(bottomRight.x, bottomRight.y), ImColor(0.0f, 0.0f, 0.0f, color.a), rounding, thickness + 2);
+
+	if (filled)
+	{
+		ImGui::GetBackgroundDrawList()->AddRectFilled(ImVec2(topLeft.x, topLeft.y), ImVec2(bottomRight.x, bottomRight.y), ImColor(color.r, color.g, color.b, color.a), rounding);
+		return;
+	}
+
+	ImGui::GetBackgroundDrawList()->AddRect(ImVec2(topLeft.x, topLeft.y), ImVec2(bottomRight.x, bottomRight.y), ImColor(color.r, color.g, color.b, color.a), rounding, thickness);
+}
+
+void Renderer::DrawCircle(const Vec2& center, const Color& color, float radius, int segments, float thickness, bool outlined, bool filled)
+{
+	if (outlined)
+		ImGui::GetBackgroundDrawList()->AddCircle(ImVec2(center.x, center.y), radius, ImColor(0.0f, 0.0f, 0.0f, color.a), segments, thickness + 2);
+
+	ImGui::GetBackgroundDrawList()->AddCircle(ImVec2(center.x, center.y), radius, ImColor(color.r, color.g, color.b, color.a), segments, thickness);
+}
+
 LRESULT CALLBACK WindowProcess(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
 {
 	if (GetAsyncKeyState(VK_INSERT) & 1)

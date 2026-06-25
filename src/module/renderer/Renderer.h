@@ -36,6 +36,8 @@ public:
 	void ToggleMenu() { m_MenuShown = !m_MenuShown; }
 
 	void DrawText(const std::string& text, const Vec2& position, const Color& color, bool outlined = true, float fontSize = 13, ImFont* font = nullptr);
+	void DrawRect(const Vec2& topLeft, const Vec2& bottomRight, const Color& color, float thickness = 1.0f, bool outlined = false, bool filled = false, float rounding = 0.0f);
+	void DrawCircle(const Vec2& center, const Color& color, float radius, int segments = 50, float thickness = 1.0f, bool outlined = false, bool filled = false);
 
 private:
 	void Menu();

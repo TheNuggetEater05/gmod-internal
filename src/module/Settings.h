@@ -4,6 +4,7 @@
 #define SETTINGS_H
 
 #include "types/Color.h"
+#include <string>
 
 struct Settings
 {
@@ -18,6 +19,13 @@ struct Settings
 	} Visuals;
 };
 
+struct GameInfo
+{
+	int FPS = 0;
+	std::string ServerName = "";
+};
+
 inline Settings g_Settings;
+inline GameInfo g_GameInfo;
 
 #endif // !SETTINGS_H
