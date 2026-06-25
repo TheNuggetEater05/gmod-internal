@@ -26,7 +26,9 @@ bool Renderer::Init()
 	ImGui_ImplWin32_Init(D3D::creationParams.hFocusWindow);
 	ImGui_ImplDX9_Init(D3D::pDevice);
 
-	m_DrawList = ImGui::GetBackgroundDrawList();
+	m_pIO = &ImGui::GetIO();
+	m_Fonts["ProggyClean"] = m_pIO->Fonts->AddFontDefaultBitmap();
+	m_Fonts["ProggyForever"] = m_pIO->Fonts->AddFontDefaultVector();
 
 	Logger::Get().Log(LOG_SUCCESS, "Renderer: Initialized");
 	m_Initialized = true;
@@ -70,7 +72,7 @@ void Renderer::EndRender()
 
 void Renderer::Menu()
 {
-	if (ImGui::Begin("gmod-internal menu"))
+	if (ImGui::Begin("gmod internal menu"))
 	{
 		if (ImGui::BeginTabBar("main_tabbar"))
 		{
@@ -78,7 +80,9 @@ void Renderer::Menu()
 			{
 				ImGui::Checkbox("Watermark", &g_Settings.Visuals.Watermark.enabled);
 				ImGui::SameLine();
-				ImGui::ColorEdit4("Color", &g_Settings.Visuals.Watermark.color.r);
+				ImGui::ColorEdit4("Color", &g_Settings.Visuals.Watermark.color.r, ImGuiColorEditFlags_NoInputs | ImGuiColorEditFlags_NoLabel);
+				ImGui::SameLine();
+				ImGui::SliderInt("Size", &g_Settings.Visuals.Watermark.size, 21, 128);
 				
 				ImGui::EndTabItem();
 			}
@@ -113,9 +117,17 @@ void Renderer::Menu()
 	
 }
 
-void Renderer::DrawText(const std::string& text, const Vec2& position, const Color& color)
+void Renderer::DrawText(const std::string& text, const Vec2& position, const Color& color, bool outlined, float fontSize, ImFont* font)
 {
-	ImGui::GetBackgroundDrawList()->AddText(ImVec2(position.x, position.y), ImColor(color.r, color.g, color.b, color.a), text.c_str());
+	if (outlined)
+	{
+		ImGui::GetBackgroundDrawList()->AddText(font, fontSize, ImVec2(position.x + 1, position.y - 1), ImColor(0.0f, 0.0f, 0.0f), text.c_str());
+		ImGui::GetBackgroundDrawList()->AddText(font, fontSize, ImVec2(position.x - 1, position.y + 1), ImColor(0.0f, 0.0f, 0.0f), text.c_str());
+		ImGui::GetBackgroundDrawList()->AddText(font, fontSize, ImVec2(position.x + 1, position.y + 1), ImColor(0.0f, 0.0f, 0.0f), text.c_str());
+		ImGui::GetBackgroundDrawList()->AddText(font, fontSize, ImVec2(position.x - 1, position.y - 1), ImColor(0.0f, 0.0f, 0.0f), text.c_str());
+	}
+
+	ImGui::GetBackgroundDrawList()->AddText(font, fontSize, ImVec2(position.x, position.y), ImColor(color.r, color.g, color.b, color.a), text.c_str());
 }
 
 

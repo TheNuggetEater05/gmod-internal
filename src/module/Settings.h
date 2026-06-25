@@ -12,7 +12,8 @@ struct Settings
 		struct Watermark
 		{
 			bool enabled = true;
-			Color color = {1.0f, 1.0f, 1.0f};
+			Color color = {1.0f, 1.0f, 0.0f};
+			int size = 21;
 		} Watermark;
 	} Visuals;
 };

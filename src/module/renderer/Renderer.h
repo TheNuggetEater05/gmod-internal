@@ -10,6 +10,8 @@
 
 class Module;
 struct ImDrawList;
+struct ImFont;
+struct ImGuiIO;
 
 struct Vec2;
 struct Color;
@@ -29,10 +31,11 @@ public:
 	bool IsDestroying() { return m_Destroying; }
 	bool IsMenuShown() { return m_MenuShown; }
 	WNDPROC GetOWndProc() { return m_oWndProc; }
+	ImFont* GetFont(const std::string& name) { return m_Fonts[name]; }
 
 	void ToggleMenu() { m_MenuShown = !m_MenuShown; }
 
-	void DrawText(const std::string& text, const Vec2& position, const Color& color);
+	void DrawText(const std::string& text, const Vec2& position, const Color& color, bool outlined = true, float fontSize = 13, ImFont* font = nullptr);
 
 private:
 	void Menu();
@@ -44,8 +47,10 @@ private:
 	bool m_Destroying = false;
 	bool m_MenuShown = true;
 
-	ImDrawList* m_DrawList = nullptr;
+	ImGuiIO* m_pIO = nullptr;
 	WNDPROC m_oWndProc = nullptr;
+
+	std::unordered_map<std::string, ImFont*> m_Fonts;
 };
 
 #endif // !RENDERER_H

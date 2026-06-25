@@ -8,5 +8,5 @@
 
 void Watermark::Render()
 {
-	Renderer::Get().DrawText("GMOD INTERNAL v2", { 10, 10 }, g_Settings.Visuals.Watermark.color);
+	Renderer::Get().DrawText("GMOD INTERNAL REWRITE", { 5, 5 }, g_Settings.Visuals.Watermark.color, true, (float)g_Settings.Visuals.Watermark.size, Renderer::Get().GetFont("ProggyForever"));
 }
