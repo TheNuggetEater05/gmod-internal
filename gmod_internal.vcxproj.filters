@@ -15,133 +15,169 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="dllmain.cpp">
+    <ClCompile Include="src\dllmain.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Global.cpp">
+    <ClCompile Include="ext\include\imgui\imgui.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="sdk\interfaces\InterfaceManager.cpp">
+    <ClCompile Include="ext\include\imgui\imgui_demo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="sdk\valve\IClientBaseDLL.cpp">
+    <ClCompile Include="ext\include\imgui\imgui_draw.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="sdk\netvars\NetvarManager.cpp">
+    <ClCompile Include="ext\include\imgui\imgui_impl_dx9.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="sdk\valve\IClientEntityList.cpp">
+    <ClCompile Include="ext\include\imgui\imgui_impl_win32.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="sdk\rendering\Render.cpp">
+    <ClCompile Include="ext\include\imgui\imgui_tables.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="sdk\hooks\D3D.cpp">
+    <ClCompile Include="ext\include\imgui\imgui_widgets.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ext\include\imgui.cpp">
+    <ClCompile Include="src\module\Module.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ext\include\imgui_demo.cpp">
+    <ClCompile Include="src\module\hookmanager\HookManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ext\include\imgui_draw.cpp">
+    <ClCompile Include="src\module\hookmanager\hooks\D3D\D3D.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ext\include\imgui_impl_dx9.cpp">
+    <ClCompile Include="src\module\renderer\Renderer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ext\include\imgui_impl_win32.cpp">
+    <ClCompile Include="src\module\features\visuals\Watermark\Watermark.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ext\include\imgui_tables.cpp">
+    <ClCompile Include="src\module\features\visuals\Visuals.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ext\include\imgui_widgets.cpp">
+    <ClCompile Include="src\module\interfacemanager\InterfaceManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="sdk\hooks.cpp">
+    <ClCompile Include="src\module\sdk\IBaseClientDLL.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\module\sdk\IVEngineClient.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\module\sdk\IClientEntityList.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\module\features\visuals\ESP\ESP.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\module\netvarmanager\NetvarManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\module\sdk\IVDebugOverlay.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Flow.h">
+    <ClInclude Include="ext\include\minhook\MinHook.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="utility\Logger.h">
+    <ClInclude Include="ext\include\imgui\imconfig.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="utility\Singleton.h">
+    <ClInclude Include="ext\include\imgui\imgui.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="sdk\SDK.h">
+    <ClInclude Include="ext\include\imgui\imgui_impl_dx9.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Global.h">
+    <ClInclude Include="ext\include\imgui\imgui_impl_win32.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="utility\Memory.h">
+    <ClInclude Include="ext\include\imgui\imgui_internal.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="sdk\interfaces\InterfaceManager.h">
+    <ClInclude Include="ext\include\imgui\imstb_rectpack.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Includes.h">
+    <ClInclude Include="ext\include\imgui\imstb_textedit.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="sdk\netvars\NetvarManager.h">
+    <ClInclude Include="ext\include\imgui\imstb_truetype.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="common.h">
+    <ClInclude Include="src\module\Module.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="sdk\valve\IClientBaseDLL.h">
+    <ClInclude Include="src\common\Includes.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="sdk\valve\IClientEntityList.h">
+    <ClInclude Include="src\common\Singleton.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="sdk\types\Vector3.h">
+    <ClInclude Include="src\module\logger\Logger.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ext\include\MinHook.h">
+    <ClInclude Include="src\module\hookmanager\HookManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="sdk\rendering\Render.h">
+    <ClInclude Include="src\module\hookmanager\hooks\D3D\D3D.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="sdk\hooks\D3D.h">
+    <ClInclude Include="src\common\Memory.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ext\include\imconfig.h">
+    <ClInclude Include="src\module\renderer\Renderer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ext\include\imgui.h">
+    <ClInclude Include="src\module\types\Vector.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ext\include\imgui_impl_dx9.h">
+    <ClInclude Include="src\module\types\Color.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ext\include\imgui_impl_win32.h">
+    <ClInclude Include="src\module\features\visuals\Watermark\Watermark.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ext\include\imgui_internal.h">
+    <ClInclude Include="src\module\Settings.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ext\include\imstb_rectpack.h">
+    <ClInclude Include="src\module\features\visuals\Visuals.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ext\include\imstb_textedit.h">
+    <ClInclude Include="src\module\interfacemanager\InterfaceManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ext\include\imstb_truetype.h">
+    <ClInclude Include="src\module\sdk\IBaseClientDLL.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="sdk\hooks.h">
+    <ClInclude Include="src\module\sdk\IVEngineClient.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\module\sdk\IClientEntityList.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\module\features\visuals\ESP\ESP.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\module\netvarmanager\NetvarManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common\fnv.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\module\sdk\IVDebugOverlay.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\module\types\Matrix.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Library Include="ext\lib\libMinHook.x64.lib" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="gmod_internal.slnx" />
   </ItemGroup>
 </Project>
