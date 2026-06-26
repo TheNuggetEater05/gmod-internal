@@ -9,6 +9,7 @@ class Logger;
 class HookManager;
 class InterfaceManager;
 class Renderer;
+class NetvarManager;
 
 class Module : public Singleton<Module>
 {
@@ -25,6 +26,7 @@ public:
 	InterfaceManager* pInterfaceManager;
 	HookManager* pHookManager;
 	Renderer* pRenderer;
+	NetvarManager* pNetvarManager;
 
 private:
 	bool m_Initialized = false;

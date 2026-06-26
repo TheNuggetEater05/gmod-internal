@@ -10,7 +10,26 @@ void IVEngineClient::GetScreenSize(int& width, int& height)
 	return Memory::GetVFunc<fn>(this, 5)(this, width, height);
 }
 
-bool IVEngineClient::GetPlayerName(int ent_num, player_info_t* pinfo)
+std::string IVEngineClient::GetPlayerName(int ent_num)
 {
+	using fn = bool(*)(void*, int, player_info_t*);
 
+	player_info_t pinfo;
+
+	if (!Memory::GetVFunc<fn>(this, 8)(this, ent_num, &pinfo))
+		return "";
+
+	return std::string(pinfo.name);
+}
+
+bool IVEngineClient::IsInGame()
+{
+	using fn = bool(*)(void*);
+	return Memory::GetVFunc<fn>(this, 26)(this);
+}
+
+bool IVEngineClient::IsConnected()
+{
+	using fn = bool(*)(void*);
+	return Memory::GetVFunc<fn>(this, 27)(this);
 }

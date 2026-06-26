@@ -4,15 +4,18 @@
 #include "interfacemanager/InterfaceManager.h"
 #include "hookmanager/HookManager.h"
 #include "renderer/Renderer.h"
-
-#include "sdk/IBaseClientDLL.h"
-#include "sdk/IVEngineClient.h"
-
+#include "netvarmanager/NetvarManager.h"
 #include "types/Vector.h"
+
+#include "features/visuals/Visuals.h"
 
 #include <imgui/imgui.h>
 
 #include "Settings.h"
+
+#include "sdk/IBaseClientDLL.h"
+#include "sdk/IVEngineClient.h"
+#include "sdk/IClientEntityList.h"
 
 void Module::Start(HMODULE hModule)
 {
@@ -24,21 +27,12 @@ void Module::Start(HMODULE hModule)
 	if (!Init())
 		Kill("Failed to initialize module");
 
-	IBaseClientDLL* vclient = pInterfaceManager->GetI<IBaseClientDLL>("client.dll", "VClient0");
-	IVEngineClient* vengineclient = pInterfaceManager->GetI<IVEngineClient>("engine.dll", "VEngineClient");
-
-	int width, height = 0;
-	vengineclient->GetScreenSize(width, height);
-
-	pLogger->Log("Width: %i, Height: %i", width, height);
 }
 
 void Module::Update()
 {
-	if (!ImGui::GetCurrentContext())
+	if (!m_Initialized)
 		return;
-
-	g_GameInfo.FPS = ImGui::GetIO().Framerate;
 }
 
 // Private
@@ -61,8 +55,14 @@ bool Module::Init()
 	pRenderer = &Renderer::Get();
 	//pRenderer->Init();
 
+	pNetvarManager = &NetvarManager::Get();
+	pNetvarManager->Init();
+
+	Visuals::Get().Init();
+
 	pLogger->Log(LOG_SUCCESS, "Module initialized");
 	m_Initialized = true;
+	return true;
 }
 
 void Module::Kill(const char* format, ...)

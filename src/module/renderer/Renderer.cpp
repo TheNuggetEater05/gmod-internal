@@ -55,12 +55,12 @@ void Renderer::StartRender()
 	ImGui_ImplWin32_NewFrame();
 	ImGui::NewFrame();
 
+	Visuals::Get().Render();
+
 	if (m_MenuShown)
 	{
 		Renderer::Menu();
 	}
-
-	Visuals::Get().Render();
 }
 
 void Renderer::EndRender()
@@ -72,7 +72,7 @@ void Renderer::EndRender()
 
 void Renderer::Menu()
 {
-	if (ImGui::Begin("gmod internal menu"))
+	if (ImGui::Begin("spork alpha"))
 	{
 		if (ImGui::BeginTabBar("main_tabbar"))
 		{
@@ -80,10 +80,14 @@ void Renderer::Menu()
 			{
 				ImGui::Checkbox("Watermark", &g_Settings.Visuals.Watermark.enabled);
 				ImGui::SameLine();
-				ImGui::ColorEdit4("Color", &g_Settings.Visuals.Watermark.color.r, ImGuiColorEditFlags_NoInputs | ImGuiColorEditFlags_NoLabel);
+				ImGui::ColorEdit4("WatermarkColor", &g_Settings.Visuals.Watermark.color.r, ImGuiColorEditFlags_NoInputs | ImGuiColorEditFlags_NoLabel);
+
+				ImGui::SeparatorText("Players");
+
+				ImGui::Checkbox("ESP", &g_Settings.Visuals.ESP.enabled);
 				ImGui::SameLine();
-				ImGui::SliderInt("Size", &g_Settings.Visuals.Watermark.size, 21, 128);
-				
+				ImGui::ColorEdit4("ESPColor", &g_Settings.Visuals.ESP.color.r, ImGuiColorEditFlags_NoInputs | ImGuiColorEditFlags_NoLabel);
+
 				ImGui::EndTabItem();
 			}
 
@@ -132,7 +136,7 @@ void Renderer::DrawText(const std::string& text, const Vec2& position, const Col
 
 
 void Renderer::DrawRect(const Vec2& topLeft, const Vec2& bottomRight, const Color& color, float thickness, bool outlined, bool filled, float rounding)
-{
+{ 
 	if (outlined)
 		ImGui::GetBackgroundDrawList()->AddRect(ImVec2(topLeft.x, topLeft.y), ImVec2(bottomRight.x, bottomRight.y), ImColor(0.0f, 0.0f, 0.0f, color.a), rounding, thickness + 2);
 
@@ -149,6 +153,12 @@ void Renderer::DrawCircle(const Vec2& center, const Color& color, float radius, 
 {
 	if (outlined)
 		ImGui::GetBackgroundDrawList()->AddCircle(ImVec2(center.x, center.y), radius, ImColor(0.0f, 0.0f, 0.0f, color.a), segments, thickness + 2);
+
+	if (filled)
+	{
+		ImGui::GetBackgroundDrawList()->AddCircleFilled(ImVec2(center.x, center.y), radius, ImColor(color.r, color.g, color.b, color.a), segments);
+		return;
+	}
 
 	ImGui::GetBackgroundDrawList()->AddCircle(ImVec2(center.x, center.y), radius, ImColor(color.r, color.g, color.b, color.a), segments, thickness);
 }

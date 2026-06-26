@@ -8,5 +8,5 @@
 
 void Watermark::Render()
 {
-	Renderer::Get().DrawText("GMOD INTERNAL REWRITE | " + std::to_string(g_GameInfo.FPS) + " FPS", {5, 5}, g_Settings.Visuals.Watermark.color, true, (float)g_Settings.Visuals.Watermark.size, Renderer::Get().GetFont("ProggyForever"));
+	Renderer::Get().DrawText("spork alpha", {5, 5}, g_Settings.Visuals.Watermark.color, true, (float)g_Settings.Visuals.Watermark.size, Renderer::Get().GetFont("ProggyForever"));
 }

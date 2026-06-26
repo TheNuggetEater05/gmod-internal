@@ -9,6 +9,7 @@ class Visuals : public Singleton<Visuals>
 {
 	friend class Singleton<Visuals>;
 public:
+	void Init();
 	void Render();
 };
 
